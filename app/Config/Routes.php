@@ -32,6 +32,8 @@ $routes->set404Override();
  * Route Definitions
  * --------------------------------------------------------------------
  */
+$routes->patch('/api/v1/todos', 'Home::updateTodo');
+
 $routes->post('/addTodo', 'Home::addTodo');
 
 // We get a performance increase by specifying the default

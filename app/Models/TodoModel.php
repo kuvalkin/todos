@@ -10,4 +10,14 @@ class TodoModel extends Model
     protected $primaryKey = 'id';
 
     protected $allowedFields = ['title', 'is_done'];
+
+    protected $validationRules = [
+        'title'     => 'required|max_length[512]|alpha_numeric_punct',
+    ];
+
+    public function exists($id): bool
+    {
+        //todo optimize query
+        return !!$this->find($id);
+    }
 }
